@@ -75,7 +75,7 @@
   
   .task-container{
     width: 100%;
-    max-width: 1000px;
+    max-width: var(--max-size);
   }
   
   .tasks-grid{
@@ -85,7 +85,7 @@
     justify-content: space-between;
     width: 100%;
     margin-bottom: 40px;
-    max-width: 1000px;
+    flex-basis: var(--max-size);
     margin: 0;
     padding: 0;
   }
@@ -109,7 +109,15 @@
     max-width: 449px;
     cursor: pointer;
   }
-  
+  .task:hover{
+    color: var(--accent-color);
+    
+  }
+
+  .task:hover .task-icon{
+    filter: invert(79%) sepia(74%) saturate(2897%) hue-rotate(355deg) brightness(110%) contrast(101%);
+  }
+
   @media (max-width: 770px) {
     .task{
         width: calc(100% - 40px);
@@ -123,7 +131,8 @@
   
   .task-text{
     flex: 1 1 auto;
-    margin: 0 0 0 20px;
+    margin-left: 1rem;
+    font-size: 1.15rem;
   }
   
   .addtask-float-button {
@@ -151,7 +160,7 @@
   }
   
   .section-title{
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-weight: bold;
     padding-top: 3rem;
     padding-bottom: 3rem;
@@ -160,10 +169,15 @@
   }
   
   .menu-icon{
-    width: 28px;
-    height: 32px;
+    width: 50px;
+    height: 35px;
     position: relative;
     cursor: pointer;
+    border: none;
+    background-color: transparent;
+  }
+  .menu-icon:hover .icon-bar{
+    background-color: var(--accent-color)
   }
   
   .icon-bar{
@@ -171,9 +185,10 @@
     height: 5px;
     border-radius: 5px;
     background-color: var(--text-color);
-    right: 0;
+    right: 5px;
   }
   
+
   #icon-bar-top{
     bottom: 25px;
     width: 28px;
@@ -188,6 +203,8 @@
     width: 23px;
   }
   
+
+
   .input-inside-text{
     position: absolute;
     margin: 0;

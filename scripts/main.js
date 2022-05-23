@@ -1,11 +1,12 @@
-import { toggleTask, addTask } from './task.js';
-import { handleSubmit } from './inputBar.js';
+import { toggleTask, addTask } from "./task.js";
+import { handleSubmit } from "./inputBar.js";
 
-
-
-[... document.getElementsByClassName('task')].forEach(element => {
-    element.addEventListener('click', toggleTask);
+//for sample
+[...document.getElementsByClassName("task")].forEach((element) => {
+  element.addEventListener("click", toggleTask);
 });
 
 // Setup task bar
-document.getElementById('addtask-form').addEventListener('submit', (e)=>handleSubmit(e, addTask));
+document
+  .getElementById("addtask-form")
+  .addEventListener("submit", (e) => handleSubmit(e, addTask));
