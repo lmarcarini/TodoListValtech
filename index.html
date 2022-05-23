@@ -4,10 +4,55 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+    <link rel="stylesheet" href="styles/global.css" />
     <title>To Do List</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
+    <nav class="top-menu">
+      <h1 class="app-name">My Tasks</h1>
+      <div class="add-task-input-bar">
+          <form id="addtask-form">
+              <input type="text" name="add-task" placeholder="Add new task" class="add-task-input-field" id="add-task"/>
+              <p class="input-inside-text">&gt</p>
+          </form>
+      </div>
+      <a class="menu-icon">
+          <div id="icon-bar-top" class="icon-bar"></div>
+          <div id="icon-bar-middle" class="icon-bar"></div>
+          <div id="icon-bar-bottom" class="icon-bar"></div>
+      </a>
+    </nav>
+  <main class="main">
+      <div class="task-container">
+          <div class="tasks-grid" id="incompleted-tasks">
+              <div class="task">
+                  <img src="images/icons/circle-regular.svg" class="task-icon" width=18px height=18px>
+                  <p class="task-text">Go shopping</p>
+              </div>
+              <div class="task">
+                  <img src="images/icons/circle-regular.svg" class="task-icon" width=18px height=18px>
+                  <p class="task-text">Short Exercise</p>
+              </div>
+              <div class="task">
+                  <img src="images/icons/circle-regular.svg" class="task-icon" width=18px height=18px>
+                  <p class="task-text">Meditation</p>
+              </div>
+          </div>
+          <h2 class="section-title">
+              Completed
+          </h2>
+          <div class="tasks-grid" id="completed-tasks">
+              <div class="task task-completed">
+                  <img src="images/icons/circle-solid.svg" class="task-icon" width=18px height=18px>
+                  <p class="task-text">Reading</p>
+              </div>
+          </div>
+      </div>
+    </main>
+  <button class="addtask-float-button">
+      +
+  </button>
+    <script type="module" src="/scripts/main.js"></script>
   </body>
 </html>
