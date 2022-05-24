@@ -1,39 +1,63 @@
 import { sortArrayByName, upperCaseFirstLetter } from "./utils";
 
-const toggleTask = (e) => {
-    const task = e.currentTarget;
-    task.classList.toggle('task-completed');
-    let icon = task.children[0];
-    let isCompleted = task.classList.contains('task-completed');
-    icon.src = isCompleted ?  'images/icons/circle-solid.svg' : 'images/icons/circle-regular.svg';
-    const targetContainer = isCompleted ? 'completed-tasks' : 'incompleted-tasks';
+export const TasksHandler = () => {
+  let idCounter = 0;
+  const tasks = [];
+
+  const createTaskElement = (taskText, id) => {
+    const taskElement = document.createElement("li");
+    taskElement.classList.add("task");
+    let textElement = createText(taskText);
+    taskElement.appendChild(textElement);
+    taskElement.setAttribute("data-id", id);
+    taskElement.addEventListener("click", handleClick);
+    return taskElement;
+  };
+
+  const toggleTask = (taskNode) => {
+    taskNode.classList.toggle("task-completed");
+    let isCompleted = taskNode.classList.contains("task-completed");
+    const targetContainer = isCompleted
+      ? "completed-tasks"
+      : "incompleted-tasks";
+    tasks.find((task) => task.id === Number(taskNode.dataset.id)).completed =
+      isCompleted;
+    console.table(tasks);
     const newContainer = document.getElementById(targetContainer);
-    newContainer.appendChild(task);
+    newContainer.appendChild(taskNode);
     reorderTasks(targetContainer);
-}
+  };
 
-const addTask = (task) => {
-    const newTask = document.createElement('div');
-    newTask.className = 'task';
-    let image = newTask.appendChild(document.createElement('img'));
-    image.className = 'task-icon';
-    image.src = 'images/icons/circle-regular.svg';
-    image.alt = '';
-    image.width = 18;
-    image.height = 18;
-    let text = newTask.appendChild(document.createElement('span'));
-    text.className = 'task-text';
-    text.innerText = upperCaseFirstLetter(task);
-    newTask.addEventListener('click', toggleTask);
-    document.getElementById('incompleted-tasks').appendChild(newTask);
-    reorderTasks('incompleted-tasks');
-}
+  const createText = (text) => {
+    let textNode = document.createElement("span");
+    textNode.className = "task-text";
+    textNode.innerText = upperCaseFirstLetter(text);
+    return textNode;
+  };
 
-const reorderTasks = (containerName) => {
+  const addTask = (task) => {
+    let id = idCounter++;
+    let newTask = createTaskElement(task, id);
+    tasks.push({ node: newTask, id: id, completed: false });
+    document.getElementById("incompleted-tasks").appendChild(newTask);
+    reorderTasks("incompleted-tasks");
+    return newTask;
+  };
+
+  const reorderTasks = (containerName) => {
     let container = document.getElementById(containerName);
-    let incompleteTasks = [... container.children].map(task => ({node: task, name: task.children[1].innerText}));
-    incompleteTasks = sortArrayByName([... incompleteTasks]);
-    incompleteTasks.forEach(task => container.appendChild(task.node));
-}
+    let incompleteTasks = [...container.children].map((task) => ({
+      node: task,
+      name: task.children[0].innerText,
+    }));
+    incompleteTasks = sortArrayByName([...incompleteTasks]);
+    incompleteTasks.forEach((task) => container.appendChild(task.node));
+  };
 
-export { toggleTask, addTask };
+  const handleClick = (e) => {
+    const taskNode = e.currentTarget;
+    toggleTask(taskNode);
+  };
+
+  return { toggleTask, addTask };
+};

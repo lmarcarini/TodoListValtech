@@ -1,3 +1,10 @@
+body{
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: "Ubuntu", sans-serif;
+}
+
+
 .top-menu {
     display:flex;
     justify-content: flex-start;
@@ -11,7 +18,7 @@
     font-size: 2em;
   }
   
-  @media (min-width: 770px) {
+  @media (min-width: 420px) {
     .app-name {
         display: none;
     }
@@ -35,7 +42,7 @@
     padding: 20px;
     background-color: var(--background-color);
     border-radius: 15px;
-    width: 100%;
+    width: 65%;
     max-width: 449px;
     border: none;
     box-shadow: inset -2px -2px 8px rgba(255, 255, 255, 0.1), inset 3px 3px 12px rgba(0, 0, 0, 0.3) ;
@@ -53,7 +60,7 @@
     outline: none;
   }
   
-  @media (max-width: 770px) {
+  @media (max-width: 420px) {
     .add-task-input-bar {
         display: none;
     }	
@@ -75,7 +82,6 @@
   
   .task-container{
     width: 100%;
-    max-width: var(--max-size);
   }
   
   .tasks-grid{
@@ -90,7 +96,7 @@
     padding: 0;
   }
   
-  @media (max-width: 770px) {
+  @media (max-width: 420px) {
     .tasks-grid {
         flex-direction: column;
         align-items: center;
@@ -108,19 +114,22 @@
     border-radius: 15px;
     max-width: 449px;
     cursor: pointer;
+    transition: color 0.5s ease-out;
   }
   .task:hover{
     color: var(--accent-color);
-    
   }
 
-  .task:hover .task-icon{
-    filter: invert(79%) sepia(74%) saturate(2897%) hue-rotate(355deg) brightness(110%) contrast(101%);
-  }
-
-  @media (max-width: 770px) {
+  
+  @media (min-width: 420px) and (max-width: 1024px) {
     .task{
-        width: calc(100% - 40px);
+      flex-basis: 40%;
+    }
+  }
+  @media (max-width: 420px) {
+    .task{
+      flex-basis: 100%;
+      width: calc(100% - 2rem);
     }
   }
   
@@ -131,8 +140,32 @@
   
   .task-text{
     flex: 1 1 auto;
-    margin-left: 1rem;
+    margin-left: 2.125rem;
     font-size: 1.15rem;
+    position: relative;
+  }
+  
+  .task-text::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: -2rem;
+    width: 1.125rem;
+    height: 1.125rem;
+    border-radius: 50%;
+    border: 2px solid  var(--text-color);
+  }
+
+  .tasks-grid--completed .task-text::before {
+    background-color: var(--text-color);
+  }
+  
+  .task:hover .task-text::before{
+    border: 2px solid  var(--accent-color);
+  }
+
+  .tasks-grid--completed .task:hover .task-text::before{
+    background-color: var(--accent-color);
   }
   
   .addtask-float-button {
@@ -153,7 +186,7 @@
     cursor: pointer;
   }
   
-  @media (min-width: 770px) {
+  @media (min-width: 420px) {
     .addtask-float-button {
         display: none;
     }	
@@ -189,20 +222,19 @@
   }
   
 
-  #icon-bar-top{
+  .icon-bar--top{
     bottom: 25px;
     width: 28px;
   }
 
-  #icon-bar-middle{
+  .icon-bar--middle{
     bottom: 15px;
     width: 40px;
   }
-  #icon-bar-bottom{
+  .icon-bar--bottom{
     bottom: 5px;
     width: 23px;
   }
-  
 
 
   .input-inside-text{

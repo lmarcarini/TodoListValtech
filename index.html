@@ -19,36 +19,20 @@
           </form>
       </div>
       <button class="menu-icon">
-          <div id="icon-bar-top" class="icon-bar"></div>
-          <div id="icon-bar-middle" class="icon-bar"></div>
-          <div id="icon-bar-bottom" class="icon-bar"></div>
+          <div class="icon-bar icon-bar--top"></div>
+          <div class="icon-bar icon-bar--middle"></div>
+          <div class="icon-bar icon-bar--bottom"></div>
       </button>
     </nav>
   <main class="main">
-      <div class="task-container">
-          <div class="tasks-grid" id="incompleted-tasks">
-              <div class="task">
-                  <img src="images/icons/circle-regular.svg" class="task-icon" width=18px height=18px>
-                  <p class="task-text">Go shopping</p>
-              </div>
-              <div class="task">
-                  <img src="images/icons/circle-regular.svg" class="task-icon" width=18px height=18px>
-                  <p class="task-text">Short Exercise</p>
-              </div>
-              <div class="task">
-                  <img src="images/icons/circle-regular.svg" class="task-icon" width=18px height=18px>
-                  <p class="task-text">Meditation</p>
-              </div>
-          </div>
-          <h2 class="section-title">
-              Completed
-          </h2>
-          <div class="tasks-grid" id="completed-tasks">
-              <div class="task task-completed">
-                  <img src="images/icons/circle-solid.svg" class="task-icon" width=18px height=18px>
-                  <p class="task-text">Reading</p>
-              </div>
-          </div>
+      <div class="task-container taskList">
+        <ol class="tasks-grid tasks-grid--incompleted" id="incompleted-tasks">
+        </ol>
+        <h2 class="section-title">
+            Completed
+        </h2>
+        <ol class="tasks-grid tasks-grid--completed" id="completed-tasks">
+        </ol>
       </div>
     </main>
   <button class="addtask-float-button">

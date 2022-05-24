@@ -1,10 +1,11 @@
-import { toggleTask, addTask } from "./task.js";
+import { TasksHandler } from "./task.js";
 import { handleSubmit } from "./inputBar.js";
 
-//for sample
-[...document.getElementsByClassName("task")].forEach((element) => {
-  element.addEventListener("click", toggleTask);
-});
+const { toggleTask, addTask } = TasksHandler();
+addTask("Go Shopping");
+addTask("Reading");
+addTask("Short Exercise");
+toggleTask(addTask("Medication"));
 
 // Setup task bar
 document
