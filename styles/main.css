@@ -186,11 +186,9 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 20px;
     box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.3), -2px -2px 8px rgba(255, 255, 255, 0.1) ;
     border-radius: 15px;
     max-width: 449px;
-    cursor: pointer;
     transition: color 0.25s ease-out;
   }
   .task:hover{
@@ -214,16 +212,23 @@
     text-decoration: line-through;
   }
   
-  .task-text{
+  .task_button{
     flex: 1 1 auto;
+    margin: 1rem;
     padding-left: 2.125rem;
     font-size: 1.15rem;
     position: relative;
     overflow: hidden;
     text-overflow: ellipsis;
+    background-color: transparent;
+    color: var(--text-color);
+    border: none;
+  }
+  .task:hover .task_button{
+    color: var(--accent-color);
   }
   
-  .task-text::before {
+  .task_button::before {
     content: "";
     position: absolute;
     top: 2px;
@@ -235,15 +240,15 @@
     transition: all 0.25s ease-out;
   }
 
-  .task-list--completed .task-text::before {
+  .task-list--completed .task_button::before {
     background-color: var(--text-color);
   }
   
-  .task:hover .task-text::before{
+  .task:hover .task_button::before{
     border: 2px solid  var(--accent-color);
   }
 
-  .task-list--completed .task:hover .task-text::before{
+  .task-list--completed .task:hover .task_button::before{
     background-color: var(--accent-color);
   }
 

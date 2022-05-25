@@ -3,24 +3,23 @@ import { handleSubmit } from "./inputBar.js";
 import { modal } from "./addButton.js";
 
 const appSetup = () => {
-  const { toggleTask, addTask } = TasksHandler();
-  const newModal = new modal();
-  const { isOpen, toggleModal, handleClick } = newModal;
+  // Setup task bar
+  const { addTask } = TasksHandler();
+
   addTask("Go Shopping");
   addTask("Reading");
   addTask("Short Exercise");
-  toggleTask(addTask("Medication"));
+  addTask("Medication").toggleTask();
 
-  // Setup task bar
+  // Setup modaladd button
+  const newModal = new modal();
+  const { isOpen, toggleModal, handleClick } = newModal;
   document.getElementById("add-task-form").addEventListener("submit", (e) => {
     let wasTaskAdded = handleSubmit(e, addTask);
     if (wasTaskAdded && isOpen) {
       toggleModal();
     }
   });
-
-  console.log(document.getElementById("add-button"));
-  // Setup add button
   document
     .getElementById("add-button")
     .addEventListener("click", (e) => handleClick(e));
