@@ -38,7 +38,7 @@ body{
     margin: 0 auto;
   }
   
-  .add-task-input-bar{
+  .add-task-form-wrapper{
     flex: 0 1 auto;
     position: absolute;
     left: 50%;
@@ -65,7 +65,7 @@ body{
   }
   
   @media (max-width: 420px) {
-    .add-task-input-bar {
+    .add-task-form-wrapper {
         display: none;
     }	
 
@@ -292,7 +292,17 @@ body{
     top: 16px;
     right: 25px;
     font-size: 1.5rem;
-    cursor: default;
+    border: none;
+    color: var(--text-color);
+    background-color: transparent;
+  }
+
+  .input-inside-text:focus{
+    outline: none;
+  }
+
+  .input-inside-text:hover{
+    color: var(--accent-color);
   }
 
   .modal-mask{
