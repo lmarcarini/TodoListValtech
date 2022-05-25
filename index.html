@@ -14,7 +14,7 @@
       <h1 class="app-name">My Tasks</h1>
       <div class="add-task-form-wrapper">
           <form id="add-task-form">
-              <input type="text" name="add-task" placeholder="Add new task" class="add-tak-form__input" id="add-task"/>
+              <input type="text" maxlength="35" name="add-task" placeholder="Add new task" class="add-tak-form__input" id="add-task"/>
               <button class="add-task-form__button" type="submit">&gt</button>
           </form>
       </div>
@@ -25,16 +25,16 @@
       </button>
     </nav>
   <main class="main">
-      <div class="task-lists-section">
-        <ol class="task-list task-list--incompleted" id="incompleted-tasks">
+      <section class="task-lists-section">
+        <ol class="task-list task-list--incomplete" id="incomplete-tasks">
         </ol>
         <h2 class="section-title">
             Completed
         </h2>
         <ol class="task-list task-list--completed" id="completed-tasks">
         </ol>
-      </div>
-    </main>
+      </section>
+  </main>
   <button class="add-task-float-button" id="add-button">
       <div class="add-task-float-button__rectangle-horizontal"></div>
       <div class="add-task-float-button__rectangle-vertical"></div>

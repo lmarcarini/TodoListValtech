@@ -44,6 +44,7 @@
     background-color: var(--background-color);
     width:100%;
     border: none;
+    font-size: 1.125rem;
     color: var(--text-color)
   }
   

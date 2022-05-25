@@ -19,7 +19,7 @@ export const TasksHandler = () => {
     let isCompleted = taskNode.classList.contains("task-completed");
     const targetContainer = isCompleted
       ? "completed-tasks"
-      : "incompleted-tasks";
+      : "incomplete-tasks";
     tasks.find((task) => task.id === Number(taskNode.dataset.id)).completed =
       isCompleted;
     console.table(tasks);
@@ -39,8 +39,8 @@ export const TasksHandler = () => {
     let id = idCounter++;
     let newTask = createTaskElement(task, id);
     tasks.push({ node: newTask, id: id, completed: false });
-    document.getElementById("incompleted-tasks").appendChild(newTask);
-    reorderTasks("incompleted-tasks");
+    document.getElementById("incomplete-tasks").appendChild(newTask);
+    reorderTasks("incomplete-tasks");
     return newTask;
   };
 
