@@ -14,30 +14,30 @@
       <h1 class="app-name">My Tasks</h1>
       <div class="add-task-form-wrapper">
           <form id="add-task-form">
-              <input type="text" name="add-task" placeholder="Add new task" class="add-task-input-field" id="add-task"/>
-              <button class="input-inside-text" type="submit">&gt</button>
+              <input type="text" name="add-task" placeholder="Add new task" class="add-tak-form__input" id="add-task"/>
+              <button class="add-task-form__button" type="submit">&gt</button>
           </form>
       </div>
       <button class="menu-icon">
-          <div class="icon-bar icon-bar--top"></div>
-          <div class="icon-bar icon-bar--middle"></div>
-          <div class="icon-bar icon-bar--bottom"></div>
+          <div class="menu-icon__bar menu-icon__bar--top"></div>
+          <div class="menu-icon__bar menu-icon__bar--middle"></div>
+          <div class="menu-icon__bar menu-icon__bar--bottom"></div>
       </button>
     </nav>
   <main class="main">
-      <div class="task-container taskList">
-        <ol class="tasks-grid tasks-grid--incompleted" id="incompleted-tasks">
+      <div class="task-lists-section">
+        <ol class="task-list task-list--incompleted" id="incompleted-tasks">
         </ol>
         <h2 class="section-title">
             Completed
         </h2>
-        <ol class="tasks-grid tasks-grid--completed" id="completed-tasks">
+        <ol class="task-list task-list--completed" id="completed-tasks">
         </ol>
       </div>
     </main>
-  <button class="addtask-float-button" id="add-button">
-      <div class="addbutton-rec1"></div>
-      <div class="addbutton-rec2"></div>
+  <button class="add-task-float-button" id="add-button">
+      <div class="add-task-float-button__rectangle-horizontal"></div>
+      <div class="add-task-float-button__rectangle-vertical"></div>
   </button>
   <div class="modal-mask"></div>
   <script type="module" src="/scripts/main.js"></script>
