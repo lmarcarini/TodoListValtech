@@ -1,8 +1,6 @@
 import { TasksHandler } from "./task.js";
 import { handleSubmit } from "./inputBar.js";
 import { modal } from "./addButton.js";
-import "../styles/global.css";
-import "../styles/main.css";
 
 const appSetup = () => {
   const { toggleTask, addTask } = TasksHandler();
