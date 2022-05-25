@@ -223,6 +223,7 @@
     background-color: transparent;
     color: var(--text-color);
     border: none;
+    text-align: left;
   }
   .task:hover .task_button{
     color: var(--accent-color);
