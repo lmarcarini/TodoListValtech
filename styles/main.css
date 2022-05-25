@@ -216,16 +216,18 @@
   
   .task-text{
     flex: 1 1 auto;
-    margin-left: 2.125rem;
+    padding-left: 2.125rem;
     font-size: 1.15rem;
     position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
   .task-text::before {
     content: "";
     position: absolute;
     top: 2px;
-    left: -2rem;
+    left: 0;
     width: 1.125rem;
     height: 1.125rem;
     border-radius: 50%;
