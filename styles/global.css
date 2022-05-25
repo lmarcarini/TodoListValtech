@@ -1,7 +1,7 @@
 :root{
   --background-color: #38404b;
-  --text-color: #8ba2c2;
-  --text-color-muted: #798ca8;
+  --text-color: #94ADCF;
+  --text-color-muted: rgba(148, 173, 207, 0.7);
   --accent-color: #ffc107;
   --max-size: 1280px;
 }

@@ -13,12 +13,16 @@ body{
     max-width: var(--max-size);
     margin: 0 auto;
   }
+
+.top-menu-expanded{
+  margin-bottom: 3rem;
+}
   
   .app-name{
-    font-size: 2em;
+    font-size: 1.5em;
   }
   
-  @media (min-width: 420px) {
+  @media (min-width: 421px) {
     .app-name {
         display: none;
     }
@@ -29,7 +33,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 1rem;
+    padding: 0 1rem 1rem 1rem;
     max-width: var(--max-size);
     margin: 0 auto;
   }
@@ -64,6 +68,12 @@ body{
     .add-task-input-bar {
         display: none;
     }	
+
+    .input-bar-active {
+        display: block;
+        top: 115px;
+        z-index: 20;
+    }
   }
   
   .menu-icon{
@@ -114,14 +124,14 @@ body{
     border-radius: 15px;
     max-width: 449px;
     cursor: pointer;
-    transition: color 0.5s ease-out;
+    transition: color 0.25s ease-out;
   }
   .task:hover{
     color: var(--accent-color);
   }
 
   
-  @media (min-width: 420px) and (max-width: 1024px) {
+  @media (min-width: 421px) and (max-width: 1024px) {
     .task{
       flex-basis: 40%;
     }
@@ -154,6 +164,7 @@ body{
     height: 1.125rem;
     border-radius: 50%;
     border: 2px solid  var(--text-color);
+    transition: all 0.25s ease-out;
   }
 
   .tasks-grid--completed .task-text::before {
@@ -170,28 +181,66 @@ body{
   
   .addtask-float-button {
     position:fixed;
-    bottom: 5%;
-    right:5%;
+    bottom: 2rem;
+    right: 1rem;
     background-color: var(--background-color);
     color: var(--text-color);
-    font-size: 40px;
+    font-size: 24px;
     border-radius: 50%;
     border: none;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: inset 1px 1px 1px rgba(255,255,255,0.3), inset -1px -1px 1px rgba(0,0,0,0.3);
+    box-shadow: -1px 1px 2px rgba(22, 26, 30, 0.2), 1px -1px 2px rgba(22, 26, 30, 0.2), -1px -1px 2px rgba(90, 102, 120, 0.9), 1px 1px 3px rgba(22, 26, 30, 0.9), inset 1px 1px 2px rgba(90, 102, 120, 0.3), inset -1px -1px 2px rgba(22, 26, 30, 0.5);
     cursor: pointer;
+    transition: all 0.25s ease-out;
+  }
+
+  .add-button-active{
+    background-color: var(--text-color);
+    z-index: 20;
   }
   
-  @media (min-width: 420px) {
+  @media (min-width: 421px) {
     .addtask-float-button {
         display: none;
     }	
   }
   
+  .addbutton-rec1{
+    position: absolute;
+    width: 24px;
+    height: 2.8px;
+    border-radius: 40px;
+    background-color: var(--text-color);
+    transition: all 0.25s ease-out;
+  }
+  .addbutton-rec2{
+    position: absolute;
+    width: 24px;
+    height: 2.8px;
+    border-radius: 40px;
+    transform: rotate(-90deg);
+    background-color: var(--text-color);
+    transition: all 0.25s ease-out;
+  }
+
+  .add-button-active .addbutton-rec1{
+    background-color: var(--background-color);
+  }
+  .add-button-active .addbutton-rec2{
+    background-color: var(--background-color);
+  }
+
+  .addtask-float-button:hover .addbutton-rec1{
+    background-color: var(--accent-color)
+  }
+  .addtask-float-button:hover .addbutton-rec2{
+    background-color: var(--accent-color)
+  }
+
   .section-title{
     font-size: 1.7rem;
     font-weight: bold;
@@ -244,4 +293,31 @@ body{
     right: 25px;
     font-size: 1.5rem;
     cursor: default;
+  }
+
+  .modal-mask{
+    display: none;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.25s ease-out;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  @supports ((-webkit-backdrop-filter: blur(4px)) or (backdrop-filter: blur(4px))) {
+    .modal-mask{
+      background-color: transparent;
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
+    }
+  }
+
+  @media (max-width: 420px) {
+    .modal-mask-active{
+      display: block;
+      z-index: 10;
+    }
   }
