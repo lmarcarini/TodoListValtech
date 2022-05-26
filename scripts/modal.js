@@ -3,7 +3,6 @@ export function Modal() {
 
   const toggleModal = () => {
     open = !open;
-    console.log("isOpen", open);
     const addButton = document.getElementById("add-button");
     addButton.classList.toggle("add-button-active");
     const topMenu = document.getElementsByClassName("top-menu")[0];

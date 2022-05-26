@@ -38,7 +38,6 @@ export const TasksHandler = () => {
       const newContainer = document.getElementById(targetContainer);
       newContainer.appendChild(node);
       reorderTasks(targetContainer);
-      node.children[0].focus();
     };
 
     const getCompleted = () => completed;
@@ -77,7 +76,7 @@ export const TasksHandler = () => {
       (task) => task.id === Number(taskNode.dataset.id)
     );
     currentTask.toggleTask();
-    console.table(tasks);
+    taskNode.children[0].focus();
   };
 
   return { addTask };

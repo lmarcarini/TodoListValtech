@@ -4,7 +4,8 @@ const handleSubmit = (e, addTask) => {
   let formData = new FormData(form);
   const task = formData.get("add-task");
   if (!task || task.length === 0) return false;
-  addTask(task);
+  let taskObject = addTask(task);
+  taskObject.node.children[0].focus();
   e.target.children.namedItem("add-task").value = "";
   return true;
 };
