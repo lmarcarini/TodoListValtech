@@ -224,6 +224,7 @@
     color: var(--text-color);
     border: none;
     text-align: left;
+    transition: color 0.25s ease-out;
   }
   .task:hover .task_button{
     color: var(--accent-color);
