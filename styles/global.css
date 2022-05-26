@@ -16,3 +16,10 @@ body{
   color: var(--text-color);
   font-family: "Ubuntu", sans-serif;
 }
+
+@media screen and (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

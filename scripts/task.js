@@ -2,7 +2,7 @@ import { sortArrayByName, upperCaseFirstLetter } from "./utils";
 
 export const TasksHandler = () => {
   let idCounter = 0;
-  const tasks = [];
+  let tasks = [];
 
   function Task(description) {
     const id = idCounter++;
@@ -62,12 +62,18 @@ export const TasksHandler = () => {
 
   const reorderTasks = (containerName) => {
     let container = document.getElementById(containerName);
-    let taskList = [...container.children].map((task) => ({
+    /*let taskList = [...container.children].map((task) => ({
       node: task,
       name: task.children[0].innerText,
     }));
     taskList = sortArrayByName([...taskList]);
-    taskList.forEach((task) => container.appendChild(task.node));
+    taskList.forEach((task) => container.appendChild(task.node));*/
+    tasks = sortArrayByName([...tasks]);
+    let onCompletedContainer = containerName === "completed-tasks";
+    tasks.forEach((task) => {
+      if (task.completed() === onCompletedContainer)
+        container.appendChild(task.node);
+    });
   };
 
   const handleClick = (e) => {
@@ -77,6 +83,7 @@ export const TasksHandler = () => {
     );
     currentTask.toggleTask();
     taskNode.children[0].focus();
+    console.table(tasks);
   };
 
   return { addTask };

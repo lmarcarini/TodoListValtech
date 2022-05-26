@@ -14,7 +14,7 @@
       <h1 class="app-name">My Tasks</h1>
       <div class="add-task-form-wrapper">
           <form id="add-task-form">
-              <input type="text" maxlength="35" name="add-task" placeholder="Add new task" class="add-tak-form__input" id="add-task"/>
+              <input type="text" maxlength="35" name="add-task" placeholder="Add new task" aria-label="Add new task" class="add-tak-form__input" id="add-task"/>
               <button class="add-task-form__button" type="submit">&gt</button>
           </form>
       </div>
@@ -25,7 +25,7 @@
       </button>
     </header>
   <main class="main">
-      <section class="task-lists-section">
+      <section class="task-lists-section" aria-labelledby="Tasks List">
         <ol class="task-list task-list--incomplete" id="incomplete-tasks">
         </ol>
         <h2 class="section-title">
