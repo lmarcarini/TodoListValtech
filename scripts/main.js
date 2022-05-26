@@ -11,7 +11,7 @@ const appSetup = () => {
   addTask("Short Exercise");
   addTask("Medication").toggleTask();
 
-  // Setup modaladd button
+  // Setup modal add button
   const newModal = new Modal();
   const { isOpen, toggleModal, handleClick } = newModal;
   document.getElementById("add-task-form").addEventListener("submit", (e) => {
