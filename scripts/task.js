@@ -70,10 +70,11 @@ export const TasksHandler = () => {
     taskList.forEach((task) => container.appendChild(task.node));*/
     tasks = sortArrayByName([...tasks]);
     let onCompletedContainer = containerName === "completed-tasks";
-    tasks.forEach((task) => {
-      if (task.completed() === onCompletedContainer)
+    tasks
+      .filter((task) => task.completed() === onCompletedContainer)
+      .forEach((task) => {
         container.appendChild(task.node);
-    });
+      });
   };
 
   const handleClick = (e) => {
