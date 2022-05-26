@@ -1,6 +1,6 @@
 import { TasksHandler } from "./task.js";
 import { handleSubmit } from "./inputBar.js";
-import { modal } from "./addButton.js";
+import { Modal } from "./modal.js";
 
 const appSetup = () => {
   // Setup task bar
@@ -12,7 +12,7 @@ const appSetup = () => {
   addTask("Medication").toggleTask();
 
   // Setup modaladd button
-  const newModal = new modal();
+  const newModal = new Modal();
   const { isOpen, toggleModal, handleClick } = newModal;
   document.getElementById("add-task-form").addEventListener("submit", (e) => {
     let wasTaskAdded = handleSubmit(e, addTask);

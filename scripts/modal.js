@@ -1,9 +1,9 @@
-export function modal() {
-  this.open = false;
+export function Modal() {
+  let open = false;
 
   const toggleModal = () => {
-    this.open = !this.open;
-    console.log("isOpen", this.open);
+    open = !open;
+    console.log("isOpen", open);
     const addButton = document.getElementById("add-button");
     addButton.classList.toggle("add-button-active");
     const topMenu = document.getElementsByClassName("top-menu")[0];
@@ -23,7 +23,7 @@ export function modal() {
     toggleModal();
   };
 
-  const isOpen = () => this.open;
+  const isOpen = () => open;
 
   return { isOpen, toggleModal, handleClick };
 }
