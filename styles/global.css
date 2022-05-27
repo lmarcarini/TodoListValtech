@@ -1,17 +1,28 @@
-:root{
+:root {
   --background-color: #38404b;
-  --text-color: #94ADCF;
+  --text-color: #94adcf;
   --text-color-muted: rgba(148, 173, 207, 0.7);
   --accent-color: #ffc107;
   --max-size: 1280px;
 }
 
-*, *:before, *:after {
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #000000;
+    --text-color: #ffffff;
+    --text-color-muted: rgb(148, 173, 207);
+    --accent-color: #ffc107;
+  }
+}
+
+*,
+*:before,
+*:after {
   box-sizing: border-box;
   margin: 0;
 }
 
-body{
+body {
   background-color: var(--background-color);
   color: var(--text-color);
   font-family: "Ubuntu", sans-serif;
