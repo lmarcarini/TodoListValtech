@@ -64,11 +64,6 @@
     }
   }
   
-  .menu-icon{
-    flex: 0 1 auto;
-    margin-left: auto;
-  }
-  
   ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: var(--text-color-muted);;
     opacity: 1; /* Firefox */
@@ -100,6 +95,8 @@
 
 /* Hamburguer Icon */
   .menu-icon{
+    flex: 0 1 auto;
+    margin-left: auto;
     width: 50px;
     height: 35px;
     position: relative;

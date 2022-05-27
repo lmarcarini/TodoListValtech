@@ -1,8 +1,13 @@
+import trapFocusHandler from "./trapFocus";
+
 export function Modal() {
   let open = false;
 
+  const { trapFocus, removeTrapFocus } = trapFocusHandler();
+
   const toggleModal = () => {
     open = !open;
+
     const addButton = document.getElementById("add-button");
     addButton.classList.toggle("add-button-active");
     const topMenu = document.getElementsByClassName("top-menu")[0];
@@ -14,6 +19,12 @@ export function Modal() {
     inputBar.children[0].children[0].focus();
     const modalMask = document.getElementsByClassName("modal-mask")[0];
     modalMask.classList.toggle("modal-mask-active");
+
+    if (open) {
+      trapFocus();
+    } else {
+      removeTrapFocus();
+    }
     return;
   };
 
